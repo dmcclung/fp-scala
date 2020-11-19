@@ -4,7 +4,7 @@ object MyModule {
         else n
     }
 
-    private def formatAbs(x: Int): String = {
+    private def formatAbs(x: Int) = {
         val msg = "The absolute value of %d is %d"
         msg.format(x, abs(x))
     }
