@@ -28,4 +28,22 @@ object List {
         case Cons(h, t) => h + sum(t)
         case _ => 101
     }
+
+    def tail[A](l: List[A]): List[A] = l match {
+        case Nil => sys.error("empty list")
+        case Cons(_, t) => t
+    }
+
+    def setHead[A](h: A, l: List[A]): List[A] = l match {
+        case Nil => sys.error("set head on empty list")
+        case Cons(_, t) => Cons(h, t)
+    }
+
+    def drop[A](l: List[A], n: Int): List[A] = 
+        if (n <= 0) l
+        else l match { 
+            case Nil => Nil
+            case Cons(_, t) => drop(t, n-1)
+        }
+        
 }
